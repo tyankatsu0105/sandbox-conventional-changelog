@@ -20,6 +20,7 @@
   "homepage": "https://github.com/tyankatsu0105/sandbox-conventional-changelog#readme",
   "devDependencies": {
     "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.27",
     "cz-conventional-changelog": "^3.0.2"
   }
 }
