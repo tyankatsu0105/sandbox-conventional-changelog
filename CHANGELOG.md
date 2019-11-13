@@ -1,3 +1,22 @@
+# [1.0.0](https://github.com/tyankatsu0105/sandbox-conventional-changelog/compare/v0.1.1...v1.0.0) (2019-11-13)
+
+
+### Bug Fixes
+
+* **src:** fix src ([94f0729](https://github.com/tyankatsu0105/sandbox-conventional-changelog/commit/94f07291d61ea0355d740fa543918d8da7cce4b8)), closes [#8](https://github.com/tyankatsu0105/sandbox-conventional-changelog/issues/8)
+
+
+### Features
+
+* **src:** add log ([977cc72](https://github.com/tyankatsu0105/sandbox-conventional-changelog/commit/977cc721c33c0bcb3089bdc1a06557dad369f958)), closes [#8](https://github.com/tyankatsu0105/sandbox-conventional-changelog/issues/8)
+
+
+### Performance Improvements
+
+* **src:** perf src ([e594001](https://github.com/tyankatsu0105/sandbox-conventional-changelog/commit/e594001f459a6ce327d022f2cd0bb11126cc4ca1)), closes [#8](https://github.com/tyankatsu0105/sandbox-conventional-changelog/issues/8)
+
+
+
 ## [0.1.1](https://github.com/tyankatsu0105/sandbox-conventional-changelog/compare/v0.1.0...v0.1.1) (2019-11-13)
 
 
