@@ -1,1 +1,1 @@
-console.log("chore");
+console.log("build");
