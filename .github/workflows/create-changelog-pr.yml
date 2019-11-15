@@ -1,0 +1,49 @@
+name: Create PR for Changelog
+
+on:
+  push:
+    tags:
+      - v[0-9].[0-9]+.[0-9]+
+
+jobs:
+  PR:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/cache@v1
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Read .tool-versions
+        uses: marocchino/tool-versions-action@v1
+        id: asdf
+
+      - name: Use Node.js ${{ steps.asdf.outputs.nodejs }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ steps.asdf.outputs.nodejs }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
+
+      - name: Create CHANGELOG
+        run: "npm run changelog"
+
+      - name: Read version
+        run: "echo ::set-output name=VERSION::$(cat package.json | grep -o '\"version\": \"[^\"]*' | grep -o '[^\"]*$')"
+        id: version
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: chore(changelog): Update CHANGELOG.md
+          title: '${{ steps.version.outputs.VERSION}}'
+          reviewers: tyankatsu0105
+          branch: docs/changelog-${{ steps.version.outputs.VERSION}}
